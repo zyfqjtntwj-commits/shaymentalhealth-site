@@ -1,0 +1,95 @@
+---
+const base = import.meta.env.BASE_URL;
+const withBase = (path) => `${base}${path.replace(/^\/+/, "")}`;
+
+import "../styles/global.css";
+
+const {
+  title = "Shay Mental Health",
+  description = "Therapy for children, adolescents, and families in Washington.",
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+
+// GitHub Pages base path support
+const base = import.meta.env.BASE_URL;
+const withBase = (path) => `${base}${path.replace(/^\/+/, "")}`;
+
+// Normalize pathname so "active" works under a base path
+const normalizedPath = pathname.startsWith(base)
+  ? `/${pathname.slice(base.length).replace(/^\/+/, "")}`
+  : pathname;
+
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/work-with-me", label: "Work With Me" },
+  { href: "/specialties", label: "Specialties" },
+  { href: "/about", label: "About" },
+  { href: "/fees", label: "Fees & Logistics" },
+  { href: "/contact", label: "Contact" },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="icon" href={withBase("/favicon.ico")} />
+  </head>
+
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="brand" href={withBase("/")}>
+          <div class="name">Shay Mental Health</div>
+          <div class="tag">Child • Adolescent • Family Therapy (WA)</div>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary navigation">
+          {nav.map((item) => (
+            <a
+              href={withBase(item.href)}
+              class={normalizedPath === item.href ? "active" : ""}
+            >
+              {item.label}
+            </a>
+          ))}
+          <a class="btn primary" href={withBase("/contact")}>
+            Request a consultation
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div>
+          © {new Date().getFullYear()} Shay Mental Health • Jami Sweeney, M.Ed,
+          M.A., LMHCA
+        </div>
+        <div class="small" style="margin-top:10px;">
+          This website provides general information and is not a substitute for
+          emergency services. If you are in crisis, call 988 or go to your nearest
+          emergency department.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
