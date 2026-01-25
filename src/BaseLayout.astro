@@ -1,1 +1,63 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "Shay Mental Health",
+  description = "Therapy for children, adolescents, and families in Washington.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicons (Astro handles base path automatically) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a href="/" class="brand">
+          <strong>Shay Mental Health</strong>
+          <span>Child • Adolescent • Family Therapy (WA)</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          © {new Date().getFullYear()} Shay Mental Health • Jami Sweeney, M.Ed,
+          M.A., LMHCA
+        </p>
+        <p class="small">
+          This site provides general information and is not a substitute for
+          emergency services. If you are in crisis, call 988 or go to your nearest
+          emergency department.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
 
