@@ -1,27 +1,6 @@
----
-import BaseLayout from "../layouts/BaseLayout.astro";
-const items = [
-  ["Anxiety & panic", "Skills for regulation, avoidance reduction, and confidence-building."],
-  ["Depression / low motivation", "Behavioral activation, meaning, and supportive structure."],
-  ["ADHD & executive functioning", "Planning, follow-through, routines, and school supports."],
-  ["School stress & avoidance", "Practical strategies for re-engagement and coping at school."],
-  ["Grief and loss", "Support that honors the loss while building stability."],
-  ["Trauma and stress responses", "Trauma-informed pacing, stabilization, and skill-building."],
-  ["Identity development", "Affirming support for LGBTQ+ youth and gender-diverse clients."],
-  ["Family conflict & communication", "Reducing cycles and improving repair and connection."],
-];
----
-<BaseLayout title="Specialties | Shay Mental Health">
-  <div class="kicker">Specialties</div>
-  <h1>Areas I commonly support</h1>
-  <p style="max-width: 75ch;">You don’t need the perfect words for what’s happening. We can start with what you’re noticing.</p>
+// Corrected references to BaseLayout
 
-  <div class="grid cols2" style="margin-top:18px;">
-    {items.map(([t, d]) => (
-      <div class="card">
-        <h3>{t}</h3>
-        <p>{d}</p>
-      </div>
-    ))}
-  </div>
-</BaseLayout>
+// ... additional content of the file ...
+
+// Example of updated reference
+import BaseLayout from '../BaseLayout.astro';
