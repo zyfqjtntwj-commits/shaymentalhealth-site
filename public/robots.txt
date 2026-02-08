@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zyfqjtntwj-commits.github.io/shaymentalhealth-site/sitemap-index.xml
+
