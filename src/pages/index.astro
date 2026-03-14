@@ -5,19 +5,35 @@ import BaseLayout from "../BaseLayout.astro";
   title="Shay Mental Health | Child & Adolescent Therapy in Washington"
   description="Warm, structured support for children, adolescents, and families in Washington."
 >
-  <div class="kicker">Shay Mental Health</div>
-  <h1>Therapy for children, adolescents, and families in Washington</h1>
-  <p style="font-size:18px; max-width: 70ch;">
-    Warm, structured support grounded in evidence-based care and real-world pediatric crisis work.
-    We slow things down enough to understand what’s happening—then build skills that help at home, at school, and in relationships.
-  </p>
 
-  <div style="display:flex; gap:12px; flex-wrap:wrap; margin: 18px 0 26px;">
-    <a class="btn primary" href="/contact">Request a consultation</a>
-    <a class="btn" href="/work-with-me">Read how I work</a>
-  </div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="kicker">Shay Mental Health</div>
+      <h1>Therapy for children, adolescents, and families in Washington</h1>
+      <p class="hero-subhead">
+        Warm, structured support grounded in evidence-based care and real-world pediatric crisis work.
+        We slow things down enough to understand what's happening&#8212;then build skills that help at home, at school, and in relationships.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="/contact">Request a consultation</a>
+        <a class="btn" href="/work-with-me">Read how I work</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <img
+        src="/shaymentalhealth-site/jami.jpeg"
+        alt="Jami Sweeney, therapist at Shay Mental Health"
+        class="hero-photo"
+      />
+      <div class="hero-image-caption">
+        Jami Sweeney, M.Ed, M.A., LMHCA
+      </div>
+    </div>
+  </section>
 
-  <div class="grid cols3" style="margin-top: 18px;">
+  <!-- FEATURE CARDS -->
+  <div class="grid cols3" style="margin-top: 3rem;">
     <div class="card">
       <h3>Calm, practical care</h3>
       <p>Collaborative sessions that balance empathy with structure and clear next steps.</p>
@@ -31,4 +47,77 @@ import BaseLayout from "../BaseLayout.astro";
       <p>With consent, coordination with schools and care teams when it helps momentum.</p>
     </div>
   </div>
+
 </BaseLayout>
+
+<style>
+  /* Hero layout */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 3rem;
+    align-items: center;
+    padding: 2rem 0 1rem;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .hero-subhead {
+    font-size: 1.125rem;
+    max-width: 60ch;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* Photo */
+  .hero-image-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-photo {
+    width: 100%;
+    max-width: 360px;
+    height: 420px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  .hero-image-caption {
+    font-size: 0.875rem;
+    color: #666;
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .hero-image-wrap {
+      order: -1; /* Photo appears above text on mobile */
+    }
+
+    .hero-photo {
+      height: 300px;
+      max-width: 100%;
+    }
+  }
+</style>
